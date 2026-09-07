@@ -1,0 +1,4 @@
+append = add
+tuples cant change
+list square bracket
+list to tuple can change

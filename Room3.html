@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekham Walauwa - Room 3 (Garden View Room)</title>
+    <style>
+        /* Re-use your existing global styles and navigation/footer styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding-top: 100px; /* Adjust based on your fixed nav height */
+        }
+        
+        /* Navigation (copy exactly from your homepage) */
+        nav {
+            background: #2c3e50;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: #34495e;
+        }
+
+        /* Footer (copy exactly from your homepage) */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px; /* Add some space above the footer */
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Styles for Individual Room Page - NEW LAYOUT UPDATES */
+        .room-detail-section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .room-detail-section h1 {
+            font-size: 48px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            height: 450px; /* Larger height for impact */
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+        }
+
+        /* Gallery for smaller images */
+        .room-small-gallery { /* NEW CLASS for smaller grid */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .room-small-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .room-small-gallery img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Image next to text */
+        .image-text-block { /* NEW CLASS for image next to paragraph */
+            display: flex;
+            flex-direction: column; /* Default to column for small screens */
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: flex-start; /* Align items to the start */
+        }
+
+        .image-text-block img {
+            width: 100%; /* Full width on small screens */
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .image-text-block .text-content {
+            flex: 1; /* Allow text to take remaining space */
+        }
+
+        /* For larger screens, arrange image and text side-by-side */
+        @media (min-width: 769px) {
+            .image-text-block.left-image {
+                flex-direction: row;
+            }
+            .image-text-block.right-image {
+                flex-direction: row-reverse; /* Image on the right */
+            }
+            .image-text-block img {
+                width: 45%; /* Image takes less than half width */
+                min-width: 300px; /* Ensure image doesn't get too small */
+            }
+        }
+
+
+        .room-info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .room-description-long h3,
+        .room-amenities h3,
+        .room-rates h3 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .room-description-long p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .room-amenities ul {
+            list-style: none;
+        }
+
+        .room-amenities ul li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #555;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .room-amenities ul li::before {
+            content: '✓';
+            color: #2c3e50;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .room-rates table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 17px;
+        }
+
+        .room-rates th,
+        .room-rates td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .room-rates th {
+            background-color: #f2f2f2;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .room-rates tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .room-booking-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .room-booking-cta .cta-button {
+            background: #3498db;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .room-booking-cta .cta-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Mobile Responsive for room page */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            .room-detail-section h1 {
+                font-size: 36px;
+            }
+            .room-info-grid {
+                grid-template-columns: 1fr;
+            }
+            .room-small-gallery {
+                grid-template-columns: 1fr;
+            }
+            .featured-image,
+            .room-small-gallery img,
+            .image-text-block img {
+                height: auto;
+            }
+            .image-text-block {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+           <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+    <img src="./images/logo.png" alt="Lekham Walauwa Logo" style="height: 80px;">
+    <span style="font-size: 28px; font-weight: bold; font-family: 'Georgia', serif;">Lekham Walauwa</span>
+</a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#rooms">Rooms</a></li>
+                <li><a href="index.html#kitchen">Kitchen</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="room-detail-section">
+        <h1>The Garden View Room</h1>
+        
+        <img src="https://i.imgur.com/yyw7ma3.jpeg" alt="Main view of the Third room" class="featured-image">
+
+        <div class="room-info-grid">
+            <div class="room-description-long">
+                <h3>About This Room</h3>
+                <p>Wake up to the serene beauty of our traditional gardens in the Garden View Room. This charming room offers a refreshing connection to nature, with large windows providing delightful vistas of lush greenery and our tranquil courtyard.</p>
+                
+                <div class="image-text-block left-image">
+                    <img src="https://i.imgur.com/WZSTeGg.jpeg" alt="Interior of Garden View Room" class="image-in-text">
+                    <div class="text-content">
+                        <p>Designed with comfort and peace in mind, the Garden View Room features a comfortable bed and traditional decor that harmonizes with the historical ambiance of Lekham Walauwa. It's a perfect sanctuary for guests seeking tranquility and natural beauty.</p>
+                        <p>Enjoy your morning tea or coffee while listening to the birds chirp, right from the comfort of your room, making for a truly relaxing start to your day.</p>
+                    </div>
+                </div>
+
+                <p>The gentle breeze and the scenic views make this room an ideal choice for unwinding and immersing yourself in the peaceful surroundings of our heritage property.</p>
+
+                <div class="image-text-block right-image">
+                    <img src="https://i.imgur.com/EfQceKE.jpeg" alt="Garden View Room - Modern Bathroom" class="image-in-text">
+                    <div class="text-content">
+                        <h3>En-suite Comfort</h3>
+                        <p>Each Garden View Room is equipped with a clean, private modern bathroom. Enjoy a refreshing hot water shower in a well-maintained space that blends convenience with a subtle nod to traditional aesthetics.</p>
+                        <p>Fresh towels and essential toiletries are provided, ensuring a hassle-free and comfortable stay. Your privacy and comfort are our top priorities.</p>
+                    </div>
+                </div>
+
+                <h3>More Views of the Garden View Room</h3>
+                <div class="room-small-gallery">
+                    <img src="https://i.imgur.com/qgKzkux.jpeg" alt="Garden View Room - Bathroom Detail">
+                    <img src="YOUR_IMGUR_LINK_FOR_GARDEN_VIEW_ROOM_WINDOW_VIEW.jpeg" alt="View from Garden View Room window">
+                    <img src="YOUR_IMGUR_LINK_FOR_GARDEN_VIEW_ROOM_DECOR.jpeg" alt="Garden View Room - Traditional Decor">
+                    </div>
+
+            </div>
+            <div class="right-column-content">
+                <div class="room-amenities">
+                    <h3>Amenities</h3>
+                    <ul>
+                        <li>Queen/Double Bed (specify)</li>
+                        <li>Air Conditioning</li>
+                        <li>Private Modern Bathroom with Hot Water</li>
+                        <li>Complimentary Wi-Fi</li>
+                        <li>Garden View</li>
+                        <li>Daily Housekeeping</li>
+                        <li>Tea & Coffee Making Facilities</li>
+                        </ul>
+                </div>
+
+                <div class="room-rates">
+                    <h3>Rates</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Period</th>
+                                <th>Rate (per night)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Standard Season</td>
+                                <td>$110 USD</td>
+                            </tr>
+                            <tr>
+                                <td>Peak Season (Dec-Feb, Jul-Aug)</td>
+                                <td>$140 USD</td>
+                            </tr>
+                            <tr>
+                                <td>Long Stay (7+ nights)</td>
+                                <td>Inquire for special rates</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 14px; margin-top: 10px; color: #777;">*Rates are subject to change and may vary based on occupancy and current offers.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="room-booking-cta">
+            <a href="YOUR_ACTUAL_AIRBNB_OR_BOOKING_LINK_FOR_GARDEN_VIEW_ROOM" class="cta-button">Book The Garden View Room Now!</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Lekham Walauwa</h3>
+            <p>300 Years of Heritage • 4 Rooms • 3 Bathrooms • Traditional Kitchen</p>
+            <p>&copy; 2024 Lekham Walauwa. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

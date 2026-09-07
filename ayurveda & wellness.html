@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurveda Treatment Menu</title>
+    <style>
+        body {
+            background-color: #FFFFCC;
+            background-image: url('YOUR_IMAGE_URL_HERE');
+            background-repeat: repeat;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 11pt;
+            line-height: 1.2;
+            margin: 72pt;
+            word-wrap: break-word;
+        }
+
+        nav {
+      background: #2c3e50;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .logo span {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .nav-links a:hover {
+      background: #34495e;
+    }
+
+    .content {
+      padding: 120px 20px 60px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+        .title {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-left: 36pt;
+            text-indent: -18pt;
+            margin-bottom: 8pt;
+        }
+
+        .treatment-list {
+            margin-left: 36pt;
+            padding: 0;
+            list-style: none;
+            counter-reset: treatment-counter;
+        }
+
+        .treatment-item {
+            counter-increment: treatment-counter;
+            margin-bottom: 16pt;
+        }
+
+        .treatment-title {
+            font-weight: bold;
+            text-indent: -18pt;
+            margin-bottom: 8pt;
+        }
+
+        .treatment-title::before {
+            content: counter(treatment-counter) ". ";
+            font-weight: bold;
+        }
+
+        .treatment-description {
+            margin-bottom: 8pt;
+            text-indent: 0;
+        }
+
+        .treatment-details {
+            margin-bottom: 4pt;
+        }
+
+        .duration {
+            margin-bottom: 0;
+        }
+
+        .price {
+            margin-bottom: 0;
+        }
+
+        .special-treatment {
+            margin-left: 36pt;
+        }
+
+        /* Remove default margins for specific paragraphs */
+        p {
+            margin: 0 0 8pt 0;
+        }
+
+        .no-margin-bottom {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="./images/logo.png" alt="Lekham Walauwa Logo" />
+        <span>Lekham Walauwa</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="our-history.html">Our History</a></li>
+        <li><a href="the-house.html">The House</a></li>
+        <li><a href="cuisine.html">Cuisine</a></li>
+        <li><a href="guest-reviews.html">Reviews</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+    <h1 class="title">Our Treatment Options</h1>
+    
+    <div class="treatment-list">
+        <div class="treatment-item">
+            <div class="treatment-title">Shiro Abhyanga (Head Massage)</div>
+            <p class="treatment-description">
+                Shiro Abhyanga is known to work wonders on your mind & soul by relieving tension, fatigue and relaxing your muscles as well as nerve fibre. The treatment involves the nourishing application of herbal oil on the head which is absorbed through the roots of the hair. Shiro Abhyanga also helps to eliminate hair loss and premature greying.
+            </p>
+            <p class="duration no-margin-bottom">Duration: 1 Hour</p>
+            <p class="price no-margin-bottom">Price: USD 10</p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Mukha Abhyanga (Herbal Facial Massage with Scrub, Facial Pack and Clean Up)</div>
+            <p class="treatment-description">
+                This ayurvedic facial massage comes in three phases, namely; face massage, scrub, and face pack. It nourishes facial skin by eliminating its subtle tensions underneath it & reaching out to reflex points of the brain for better function.
+            </p>
+            <p class="duration no-margin-bottom">Duration: 1 Hour & 30 Minutes</p>
+            <p class="price no-margin-bottom">Price: USD 45</p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Griva / Skandha Abhyanga (Neck & Shoulder Massage)</div>
+            <p class="treatment-description">
+                The neck & shoulder areas are quite prone to stiffness & tension and these symptoms can be relieved with an ayurvedic massage that employs herbal oils which release herbal spasms, rheumatic pain & other stress related issues.
+            </p>
+            <p class="duration no-margin-bottom">Duration: Half an hour</p>
+            <p class="price no-margin-bottom">Price: USD 10 / LKR 3,000</p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Baahu & Hastha Abhyanga (Arm & Hand Massage)</div>
+            <p class="treatment-description">
+                The tension in arms can be caused by multiple reasons, namely; headaches, neck pains & shoulder pain. An ayurvedic massage will help nurture back the shoulders & arms while it helps relieve pain and relax the muscles in the area.
+            </p>
+            <p class="duration no-margin-bottom">Duration: Half an hour</p>
+            <p class="price no-margin-bottom">Price: USD 10 / LKR 3,000</p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Nalakini Abhyanga (Leg Massage)</div>
+            <p class="treatment-description">
+                A type of massage which stimulates proper circulation and brings necessary nutrients to the legs thereby preventing varicose veins. Massages on large muscles help eliminate fatigue while gentle strokes on lymph nodes help reduce swelling.
+            </p>
+            <p class="duration no-margin-bottom">Duration: 40 Minutes</p>
+            <p class="price no-margin-bottom">Price: USD 18</p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Padha Abhyanga (Foot Massage)</div>
+            <p class="treatment-description">
+                Tender spots are in special focus in this type of massage which produces both a reflective, soothing & invigorating effect on internal organs. Foot massages also prevent acute pain, numbness, fatigue while ensuring overall wellness of organs.
+            </p>
+            <p class="duration no-margin-bottom">Duration: 45 Minutes</p>
+            <p class="price no-margin-bottom">Price: USD 18</p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Sarvanga Abhyanga (Full Body Massage)</div>
+            <p class="treatment-description">
+                The full body massages are a more effective way of eliminating issues like obesity, body aches & pains while providing for general rejuvenation. Ayurvedic oils used in these massages invoke a sense of wellbeing as muscles are allowed to relax in the process.
+            </p>
+            <p class="duration no-margin-bottom">Duration: 1 Hour & 30 Minutes</p>
+            <p class="price no-margin-bottom">Price: USD 35</p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Udvartana (Powder Massage)</div>
+            <p class="treatment-description">
+                The powder massage is a method of using upward strokes in order to cleanse the skin and increase circulation in the body while breaking down fat storage. It's also known for its contribution to weight loss and its ability to clear clogged impurities.
+            </p>
+            <p class="duration no-margin-bottom">Duration: 1 Hour</p>
+            <p class="price no-margin-bottom">Price: USD 15</p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Paschima Abhyanga (Back Massage) for 30 Minutes – USD 10</div>
+            <p class="treatment-description">
+                This massage is conducted using 'pain reducing herbal oils' along the back & spine. A great source of stress relief, the Paschima Abhyanga reduces pain and helps in relaxing muscles thus enhancing the performance of the entire nervous system.
+            </p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Navarakshi for 45 Minutes – USD 15</div>
+            <p class="treatment-description">
+                This is a unique approach which uses linen bags tied up in boluses full of rice cooked in milk and herbs. The boluses are dipped in warm milk and applied all over the body after a massage. This technique is effective in strengthening body tissues & relieving pains.
+            </p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Pichu, for 30 Minutes – USD 10</div>
+            <p class="treatment-description">
+                The Pichu is a treatment for ailments which affect the area above the neck. A headband is tied just above the ears and oil is applied to the crown via the headband. The headband must constantly be drenched in oil. Pichu can be followed by a herbal bath.
+            </p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Urovasti</div>
+            <p class="treatment-description">
+                Urovasti as a means of treating pain in the sternum, the Urovasti is administered in the chest area by letting a small receptacle rest on the area while oil is poured into this from time to time.
+            </p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Kativasti</div>
+            <p class="treatment-description">
+                Kativasti is an ideal therapy for lower backache & stiffness in the area. Around the lumbo-sacral area is placed a small receptacle which is made of gram dough and herbal oils are thereafter poured into it. Guests are then required to rest for a while.
+            </p>
+        </div>
+
+        <div class="treatment-item">
+            <div class="treatment-title">Shirodhara</div>
+            <p class="treatment-description">
+                The remedy for pain and stress in and around the head, Shiro Dhara uses a stream of running Ayurvedic oils which are introduced to the 'third eye' area of the forehead. This treatment is administered for 55 minutes a day for three days.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
