@@ -35,15 +35,34 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
+            position: relative;
         }
         
         .logo {
             color: white;
-            font-size: 24px;
-            font-weight: bold;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
+        .logo img {
+            height: 80px;
+            transition: height 0.25s ease;
+        }
+        .logo span {
+            font-size: 28px;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+            transition: font-size 0.25s ease;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
         .nav-links {
             display: flex;
             list-style: none;
@@ -225,6 +244,9 @@
         }
 
         .room-booking-cta .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background: #3498db;
             color: white;
             padding: 15px 40px;
@@ -237,6 +259,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             text-decoration: none;
+            line-height: 1;
         }
 
         .room-booking-cta .cta-button:hover {
@@ -249,6 +272,25 @@
             body {
                 padding-top: 80px;
             }
+            .logo img { height: 45px; }
+            .logo span { font-size: 18px; }
+            .menu-toggle { display: block; }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #2c3e50;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 10px 0;
+                gap: 0;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links li { width: 100%; text-align: center; }
+            .nav-links a { display: block; padding: 12px; }
+
             .room-detail-section h1 {
                 font-size: 36px;
             }
@@ -272,16 +314,19 @@
 <body>
     <nav>
         <div class="nav-container">
-           <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
-    <img src="logo.png" alt="Lekham Walauwa Logo" style="height: 80px;">
-    <span style="font-size: 28px; font-weight: bold; font-family: 'Georgia', serif;">Lekham Walauwa</span>
-</a>
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Lekham Walauwa Logo">
+                <span>Lekham Walauwa</span>
+            </a>
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
             <ul class="nav-links">
                 <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#rooms">Rooms</a></li>
-                <li><a href="index.html#kitchen">Kitchen</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="our-history.html">Our history</a></li>
+                <li><a href="index.html#the house">The house</a></li>
+                <li><a href="index.html#cuisine">Cuisine</a></li>
+                <li><a href="index.html#guest reviews">Guest reviews</a></li>
+                <li><a href="index.html#activities">Activities</a></li>
+                <li><a href="index.html#contact us">Contact us</a></li>
             </ul>
         </div>
     </nav>
@@ -289,7 +334,6 @@
     <main class="room-detail-section">
         <h1>The Gabada Room</h1>
 
-        <!-- PASTE YOUR MAIN GABADA ROOM PHOTO LINK BELOW (between the quotes) -->
         <img src="https://i.imgur.com/YFn7Gb8.jpeg" alt="Main view of the Gabada Room" class="featured-image">
 
         <div class="room-info-grid">
@@ -298,7 +342,6 @@
                 <p>The Gabada Room is another quiet corner of our 360-year-old walauwa, kept in its original character rather than fitted out like a modern hotel room. Its window looks out toward the forest side of the property, giving a very different outlook from our garden-facing rooms.</p>
 
                 <div class="image-text-block left-image">
-                    <!-- PASTE A SECOND PHOTO LINK HERE, e.g. the bed or interior -->
                     <img src="https://i.imgur.com/cEIZ8Ew.jpeg" alt="Interior of the Gabada Room" class="image-in-text">
                     <div class="text-content">
                         <p>The room comes with an attached bathroom and a drying rack for clothes. As with the rest of the house, we don't have air conditioning here — a standing fan is provided to keep things comfortable.</p>
@@ -309,7 +352,6 @@
                 <p>We're not a five-star hotel, and we don't try to be — what we offer instead is a genuinely peaceful stay inside a home with real history, and we do our best to look after our guests throughout their time here.</p>
 
                 <div class="image-text-block right-image">
-                    <!-- PASTE A THIRD PHOTO LINK HERE, e.g. the bathroom -->
                     <img src="https://i.imgur.com/z3Ah7jE.jpeg" alt="Attached bathroom of the Gabada Room" class="image-in-text">
                     <div class="text-content">
                         <h3>Attached Bathroom</h3>
@@ -320,7 +362,6 @@
 
                 <h3>More Views of the Gabada Room</h3>
                 <div class="room-small-gallery">
-                    <!-- PASTE UP TO 3 MORE PHOTO LINKS BELOW -->
                     <img src="https://i.imgur.com/7m7RzyV.jpeg" alt="Gabada Room - Detail">
                 </div>
 
@@ -378,5 +419,11 @@
             <p>&copy; 2024 Lekham Walauwa. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
